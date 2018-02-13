@@ -14,10 +14,17 @@ check_create_dir $dinc
 date=`date --utc "+%Y%m%dT%H%M%S"`
 ddir=$dinc/$date
 bdir=$BACKUP_DST_DIR/full/current/
-log_info "Making incremental backup of $BACKUP_SRC_DIR into $ddir using $bdir as the base"
-rsync -vcrzpl --delete --link-dest=$bdir "$BACKUP_SRC_DIR" "$ddir" || fatal "rsync command failed"
-log_info "Successfully created incremental backup of $BACKUP_SRC_DIR in $ddir using $bdir as the base"
-ln -s $bdir $ddir.offset  || error "unable to symlink from $ddir.offset to $bdir"
+bdir_absolute=$(readlink -e $bdir)
+
+if [ -z "$bdir_absolute" ] || [ ! -d "$bdir_absolute" ]; then
+  log_error "You need at least 1 full backup first!"
+  exit 1
+fi
+
+log_info "Making incremental backup of $BACKUP_SRC_DIR into $ddir using $bdir_absolute as the base"
+rsync -vcrzpl --link-dest=$bdir "$BACKUP_SRC_DIR" "$ddir" || fatal "rsync command failed"
+log_info "Successfully created incremental backup of $BACKUP_SRC_DIR in $ddir using $bdir_absolute as the base"
+ln -s $bdir_absolute $ddir.offset  || error "unable to symlink from $ddir.offset to $bdir_absolute"
 rm -f $dinc/current
 ln -s $ddir $dinc/current || error "unable to symlink from $dinc/current to $ddir"
 
