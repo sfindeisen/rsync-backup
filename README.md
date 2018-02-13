@@ -7,7 +7,7 @@ rsync-based backup solution.
 1. Set the environment variables. For example:
 
 ```
-./config-dell.sh
+. ./config-dell.sh
 ```
 
 2. Run the full backup at least once
