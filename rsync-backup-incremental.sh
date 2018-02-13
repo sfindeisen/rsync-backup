@@ -33,7 +33,7 @@ if [ 0 -eq $RSYNC_STATUS ] ; then
 else
   log_error "rsync command failed (exit code: $RSYNC_STATUS)"
   log_warning "remove partially done backup: $ddir"
-  rm -rf "$ddir"
+  delete_dir "$ddir"
   exit $RSYNC_STATUS
 fi
 

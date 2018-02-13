@@ -5,7 +5,7 @@
 # Please note that this options have been omitted:
 # -x, --one-file-system       don't cross filesystem boundaries
 # -v, --verbose               increase verbosity
-RSYNC_OPTS="-crpezAXogt -LK --safe-links"
+RSYNC_OPTS="-crRpezAXogt -LK --safe-links"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
@@ -48,5 +48,12 @@ check_create_dir() {
     log_warning "Directory ($dir) does not exist - creating..."
     mkdir -v -m 700 -p $dir || fatal "unable to create directory ($dir)"
   fi
+}
+
+delete_dir() {
+  dir_to_delete=$1
+  log_info "force delete dir: $dir_to_delete"
+  chmod -R u+rwx "$dir_to_delete"
+  rm -rf $dir_to_delete
 }
 
