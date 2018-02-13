@@ -22,7 +22,7 @@ if [ -z "$bdir_absolute" ] || [ ! -d "$bdir_absolute" ]; then
 fi
 
 log_info "Making incremental backup of $BACKUP_SRC_DIR into $ddir using $bdir_absolute as the base"
-rsync -v $RSYNC_OPTS --link-dest=$bdir "$BACKUP_SRC_DIR" "$ddir"
+rsync $RSYNC_OPTS --link-dest=$bdir "$BACKUP_SRC_DIR" "$ddir"
 RSYNC_STATUS=$?
 
 if [ 0 -eq $RSYNC_STATUS ] ; then

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # rsync flags
-RSYNC_OPTS="-crRlHpexzAXogt"
+RSYNC_OPTS="-crRlHpexzAXogtv"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
