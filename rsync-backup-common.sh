@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# rsync base options
+#
+# Please note that this options have been omitted:
+# -x, --one-file-system       don't cross filesystem boundaries
+# -v, --verbose               increase verbosity
+RSYNC_OPTS="-crpezAXogt -LK --safe-links"
+
+# Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
 
 log_info()    { echo "$APPNAME: [info] $1"; }
