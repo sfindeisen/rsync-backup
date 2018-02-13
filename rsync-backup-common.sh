@@ -17,18 +17,18 @@ fatal() {
   exit 1
 }
 
-# Make sure SRC_DIR is set
+# Make sure BACKUP_SRC_DIR is set
 check_src_dir() {
-  if [ -z "$SRC_DIR" ]; then
-    log_error "missing SRC_DIR"
+  if [ -z "$BACKUP_SRC_DIR" ]; then
+    log_error "missing BACKUP_SRC_DIR"
     exit 1
   fi
 }
 
-# Make sure DST_DIR is set
+# Make sure BACKUP_DST_DIR is set
 check_dst_dir() {
-  if [ -z "$DST_DIR" ]; then
-    log_error "missing DST_DIR"
+  if [ -z "$BACKUP_DST_DIR" ]; then
+    log_error "missing BACKUP_DST_DIR"
     exit 1
   fi
 }
