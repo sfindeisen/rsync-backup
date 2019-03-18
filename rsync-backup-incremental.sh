@@ -32,7 +32,7 @@ if [ 0 -eq $RSYNC_STATUS ] ; then
   ln -s $ddir $dinc/current || error "unable to symlink from $dinc/current to $ddir"
 else
   log_error "rsync command failed (exit code: $RSYNC_STATUS)"
-  log_warning "remove partially done backup: $ddir"
+  log_warning "removing partially done backup: $ddir"
   delete_dir "$ddir"
   exit $RSYNC_STATUS
 fi

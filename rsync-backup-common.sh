@@ -3,6 +3,9 @@
 # rsync flags
 RSYNC_OPTS="-v -crRlHpexzAXogt"
 
+# cp flags
+CP_OPTS="-v -a"
+
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
 
