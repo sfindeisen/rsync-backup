@@ -1,7 +1,8 @@
 #!/bin/sh
 
-# Source in the common file
-. $(dirname $0)/rsync-backup-common.sh
+# Get the directory name of this script and include the common file
+SCRIPT_DIR=`dirname "$(readlink -f "$0")"`
+. $SCRIPT_DIR/rsync-backup-common.sh
 
 check_src_dir           # make sure BACKUP_SRC_DIR is set
 check_dst_dir           # make sure BACKUP_DST_DIR is set
