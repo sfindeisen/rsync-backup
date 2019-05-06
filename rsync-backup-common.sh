@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # rsync flags
-RSYNC_OPTS="-v -crRlHpexzAXogt"
+#
+# Note:
+# -x, --one-file-system       don't cross filesystem boundaries
+RSYNC_OPTS="-v -a -HAXR -x"
 
 # cp flags
 CP_OPTS="-v -a"
