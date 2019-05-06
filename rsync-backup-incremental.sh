@@ -24,7 +24,7 @@ fi
 
 log_info "Making incremental backup of $BACKUP_SRC_DIR into $ddir using $bdir_absolute as the base"
 rstart=`date`
-rsync $RSYNC_OPTS --link-dest=$bdir "$BACKUP_SRC_DIR" "$ddir"
+rsync $RSYNC_OPTS --link-dest=$bdir_absolute "$BACKUP_SRC_DIR" "$ddir"
 RSYNC_STATUS=$?
 log_info "Started  : $rstart"
 log_info "Finished : `date`"
