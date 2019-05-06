@@ -14,8 +14,11 @@ check_create_dir $BACKUP_DST_DIR/full
 date=`date --utc "+%Y%m%dT%H%M%S"`
 ddir=$BACKUP_DST_DIR/full/$date
 log_info "Making full backup of $BACKUP_SRC_DIR into $ddir"
+cpstart=`date`
 cp $CP_OPTS "$BACKUP_SRC_DIR" "$ddir"
 CP_STATUS=$?
+log_info "Started  : $cpstart"
+log_info "Finished : `date`"
 
 if [ 0 -eq $CP_STATUS ] ; then
   log_info "Successfully created full backup of $BACKUP_SRC_DIR in $ddir"
