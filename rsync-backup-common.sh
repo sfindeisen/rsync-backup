@@ -4,7 +4,7 @@
 #
 # Note:
 # -x, --one-file-system       don't cross filesystem boundaries
-RSYNC_OPTS="-v -a -HAXR -x"
+RSYNC_OPTS="-v -a -HAXR -x -h --progress"
 
 # cp flags
 CP_OPTS="-v -a"
