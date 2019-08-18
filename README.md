@@ -1,8 +1,8 @@
 # rsync-backup
 
 Personal, minimalistic, simple to use, space-efficient rsync(1) based backup
-solution. Unchanged files are hardlinked to previous copies, and therefore
-require no additional disk space.
+solution. Unchanged files are hardlinked to previous copies => they take no
+additional disk space.
 
 ## Requirements
 
