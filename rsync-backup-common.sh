@@ -49,6 +49,7 @@ check_create_dir() {
   fi
 }
 
+# Delete a directory without any questions
 delete_dir() {
   dir_to_delete=$1
   log_info "force delete dir: $dir_to_delete"
