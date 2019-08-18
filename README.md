@@ -6,7 +6,7 @@ additional disk space.
 
 ## Requirements
 
-1. rsync (`apt-get install rsync`)
+1. rsync (on a Debian-like operating system: `apt-get install rsync`)
 2. target filesystem must support hardlinks (tested with: `ext3`)
 
 ## How to use
