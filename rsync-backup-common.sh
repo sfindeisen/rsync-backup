@@ -4,7 +4,7 @@
 #
 # Note:
 # -x, --one-file-system       don't cross filesystem boundaries
-RSYNC_OPTS="-v -a -HAEXR -x -h --progress --exclude-from=${SCRIPT_DIR}/rsync-exclude.txt"
+RSYNC_OPTS="-a -HAEXR -x -h --progress --exclude-from=${SCRIPT_DIR}/rsync-exclude.txt"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
@@ -54,6 +54,6 @@ delete_dir() {
   dir_to_delete=$1
   log_info "force delete dir: $dir_to_delete"
   chmod -R u+rwx "$dir_to_delete"
-  rm -rf $dir_to_delete
+  rm -rf "$dir_to_delete"
 }
 
