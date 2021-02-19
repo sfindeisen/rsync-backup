@@ -4,7 +4,7 @@
 #
 # Note:
 # -x, --one-file-system       don't cross filesystem boundaries
-RSYNC_OPTS="-v -a -HAEXR -x -h --progress"
+RSYNC_OPTS="-v -a -HAEXR -x -h --progress --exclude-from=${SCRIPT_DIR}/rsync-exclude.txt"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
