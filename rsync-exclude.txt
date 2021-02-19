@@ -1,4 +1,4 @@
-.cache
-.install
-.local
-.m2
+.cache/
+.install/
+.local/
+.m2/
