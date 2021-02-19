@@ -2,7 +2,7 @@
 
 Personal, minimalistic, simple to use, space-efficient rsync(1) based backup
 solution. Unchanged files are hardlinked to previous copies => they take no
-additional disk space.
+extra space.
 
 ## Requirements
 
@@ -18,13 +18,15 @@ export BACKUP_SRC_DIR=/etc/
 export BACKUP_DST_DIR=/mnt/my-external-storage/backup/etc/
 ```
 
-2. Run the full backup at least once
+2. [optional] adjust `rsync` exclude patterns if needed (`rsync-exclude.txt`)
+
+3. Run the full backup at least once
 
 ```
 rsync-backup-full.sh
 ```
 
-3. Run the incremental backup whenever you want
+4. Run the incremental backup whenever you want
 
 ```
 rsync-backup-incremental.sh
