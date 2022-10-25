@@ -30,4 +30,3 @@ else
   delete_dir "$ddir"
   exit $RSYNC_STATUS
 fi
-

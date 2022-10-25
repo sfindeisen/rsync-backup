@@ -56,4 +56,3 @@ delete_dir() {
   chmod -R u+rwx "$dir_to_delete"
   rm -rf "$dir_to_delete"
 }
-
