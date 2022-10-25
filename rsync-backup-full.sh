@@ -23,7 +23,7 @@ log_info "Finished : `date`"
 if [ 0 -eq $RSYNC_STATUS ] ; then
   log_info "Successfully created full backup of $BACKUP_SRC_DIR in $ddir"
   rm -f $BACKUP_DST_DIR/full/current
-  ln -s $ddir $BACKUP_DST_DIR/full/current
+  ln -r -s $ddir $BACKUP_DST_DIR/full/current
 else
   log_error "rsync command failed (exit code: $RSYNC_STATUS)"
   log_warning "removing partially done backup: $ddir"

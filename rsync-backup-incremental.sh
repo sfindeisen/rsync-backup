@@ -31,9 +31,9 @@ log_info "Finished : `date`"
 
 if [ 0 -eq $RSYNC_STATUS ] ; then
   log_info "Successfully created incremental backup of $BACKUP_SRC_DIR in $ddir using $bdir_absolute as the base"
-  ln -s $bdir_absolute $ddir.offset  || error "unable to symlink from $ddir.offset to $bdir_absolute"
+  ln -r -s $bdir_absolute $ddir.offset  || error "unable to symlink from $ddir.offset to $bdir_absolute"
   rm -f $dinc/current
-  ln -s $ddir $dinc/current || error "unable to symlink from $dinc/current to $ddir"
+  ln -r -s $ddir $dinc/current || error "unable to symlink from $dinc/current to $ddir"
 else
   log_error "rsync command failed (exit code: $RSYNC_STATUS)"
   log_warning "removing partially done backup: $ddir"
