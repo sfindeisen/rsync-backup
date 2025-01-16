@@ -41,3 +41,8 @@ and just copy the files from there.
 
 I run the full backup every couple of weeks. It helps limit the incremental
 backup size.
+
+## TODO
+
+[ ] consider enabling -N (error: `rsync: This rsync does not support --crtimes (-N)`)
+[ ] consider enabling -U
