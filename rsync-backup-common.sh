@@ -10,7 +10,7 @@
 #
 # Note:
 # -x, --one-file-system       don't cross filesystem boundaries
-RSYNC_OPTS="-a -HAEXR -x -h --exclude-from=${BACKUP_RSYNC_EXCLUDE_FROM}"
+RSYNC_OPTS="-a -HAEXR -x -l -h --exclude-from=${BACKUP_RSYNC_EXCLUDE_FROM}"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")
