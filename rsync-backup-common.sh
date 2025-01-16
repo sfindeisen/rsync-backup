@@ -1,13 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # The rsync command. Set RSYNC_CMD environment variable to override it.
 : ${RSYNC_CMD:=rsync}
+
+# exclude patterns file
+: ${BACKUP_RSYNC_EXCLUDE_FROM:=${SCRIPT_DIR}/rsync-exclude.txt}
 
 # rsync flags
 #
 # Note:
 # -x, --one-file-system       don't cross filesystem boundaries
-RSYNC_OPTS="-a -HAEXR -x -h --progress --exclude-from=${SCRIPT_DIR}/rsync-exclude.txt"
+RSYNC_OPTS="-a -HAEXR -x -h --exclude-from=${BACKUP_RSYNC_EXCLUDE_FROM}"
 
 # Executable script name
 APPNAME=$(basename $0 | sed "s/\.sh$//")

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Get the directory name of this script and include the common file
 SCRIPT_DIR=`dirname "$(readlink -f "$0")"`
@@ -24,8 +24,10 @@ fi
 
 log_info "Making incremental backup of $BACKUP_SRC_DIR into $ddir using $bdir_absolute as the base"
 rstart=`date`
+set -x
 $RSYNC_CMD $RSYNC_OPTS --link-dest=$bdir_absolute "$BACKUP_SRC_DIR" "$ddir"
 RSYNC_STATUS=$?
+set +x
 log_info "Started  : $rstart"
 log_info "Finished : `date`"
 
