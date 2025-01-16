@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# The rsync command. Set RSYNC_CMD environment variable to override it.
+: ${RSYNC_CMD:=rsync}
+
 # rsync flags
 #
 # Note:

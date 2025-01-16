@@ -15,7 +15,7 @@ date=`date --utc "+%Y%m%dT%H%M%S"`
 ddir=$BACKUP_DST_DIR/full/$date
 log_info "Making full backup of $BACKUP_SRC_DIR into $ddir"
 rstart=`date`
-rsync $RSYNC_OPTS "$BACKUP_SRC_DIR" "$ddir"
+$RSYNC_CMD $RSYNC_OPTS "$BACKUP_SRC_DIR" "$ddir"
 RSYNC_STATUS=$?
 log_info "Started  : $rstart"
 log_info "Finished : `date`"
